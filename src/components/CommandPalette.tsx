@@ -24,6 +24,7 @@ export function CommandPalette({ open, onClose, onToggleTheme }: CommandPaletteP
   const commands: CommandItem[] = [
     { label: "Go to Home", hint: "page", run: () => navigate("/") },
     { label: "Go to Projects", hint: "page", run: () => navigate("/projects") },
+    { label: "Go to Coding Practice (HackerRank-style)", hint: "page", run: () => navigate("/practice") },
     { label: "Go to Experience & Stack", hint: "page", run: () => navigate("/experience") },
     { label: "Go to Contact", hint: "page", run: () => navigate("/contact") },
     { label: "Open Mini-App: Terminal", hint: "app", run: () => navigate("/apps#terminal") },

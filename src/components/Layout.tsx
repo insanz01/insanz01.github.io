@@ -78,6 +78,9 @@ export function Layout({ children, theme, onToggleTheme }: LayoutProps) {
             <NavLink to="/apps" className={navClass}>
               Apps
             </NavLink>
+            <NavLink to="/practice" className={navClass}>
+              Practice
+            </NavLink>
             <NavLink to="/experience" className={navClass}>
               Experience
             </NavLink>
