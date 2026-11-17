@@ -219,7 +219,7 @@ export function HomePage() {
           </Link>
         </div>
 
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="mb-4 flex flex-wrap items-center gap-3">
           <a
             href={`mailto:${PROFILE.email}`}
             className="border-b border-[var(--border-strong)] pb-0.5 font-mono text-[13.5px] transition-colors hover:border-[var(--accent)]"
@@ -239,6 +239,15 @@ export function HomePage() {
             {copied ? "Copied" : "Copy email"}
           </button>
         </div>
+
+        <Link
+          to="/mentoring"
+          className="inline-flex items-center gap-2 border border-[var(--border)] bg-[var(--surface-raised)] px-3.5 py-2 text-[13px] text-[var(--text-muted)] transition-colors hover:border-[var(--accent)] hover:text-[var(--text)]"
+        >
+          <span className="inline-block h-2 w-2 bg-[var(--accent)]" aria-hidden="true" />
+          <span>Looking for 1-on-1 Private Mentoring in AI-era product development?</span>
+          <span className="font-mono text-xs text-[var(--accent)]">Learn more →</span>
+        </Link>
       </section>
     </>
   );

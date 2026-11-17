@@ -4,6 +4,7 @@ import { AppsPage } from "./pages/AppsPage";
 import { ContactPage } from "./pages/ContactPage";
 import { ExperiencePage } from "./pages/ExperiencePage";
 import { HomePage } from "./pages/HomePage";
+import { MentoringPage } from "./pages/MentoringPage";
 import { PracticePage } from "./pages/PracticePage";
 import { ProjectsPage } from "./pages/ProjectsPage";
 
@@ -19,6 +20,7 @@ export function App() {
           <Route path="/apps" element={<AppsPage onSetTheme={setTheme} />} />
           <Route path="/practice" element={<PracticePage />} />
           <Route path="/experience" element={<ExperiencePage />} />
+          <Route path="/mentoring" element={<MentoringPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
