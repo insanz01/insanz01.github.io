@@ -1,14 +1,13 @@
 import { EXPERIENCE, EDUCATION, STACK } from "../data/portfolio";
+import { useLanguage } from "../i18n";
 
 export function ExperiencePage() {
+  const { t } = useLanguage();
   return (
     <>
       <section className="pb-8">
-        <h1 className="mb-2 text-[22px] font-semibold tracking-tight">Experience</h1>
-        <p className="m-0 text-[var(--text-muted)]">
-          9 years of engineering experience across backend architecture, microservices migration, AI
-          integration, and technical leadership.
-        </p>
+        <h1 className="mb-2 text-[22px] font-semibold tracking-tight">{t.experience.title}</h1>
+        <p className="m-0 text-[var(--text-muted)]">{t.experience.subtitle}</p>
       </section>
 
       <section className="border-t border-[var(--border)] py-9" aria-labelledby="work-heading">
@@ -16,7 +15,7 @@ export function ExperiencePage() {
           id="work-heading"
           className="mb-6 font-mono text-xs font-medium uppercase tracking-wider text-[var(--text-subtle)]"
         >
-          Work History
+          {t.experience.workHistory}
         </h2>
 
         <ul className="m-0 flex list-none flex-col gap-8 p-0">
@@ -55,7 +54,7 @@ export function ExperiencePage() {
           id="stack-heading"
           className="mb-5 font-mono text-xs font-medium uppercase tracking-wider text-[var(--text-subtle)]"
         >
-          Skills &amp; Technologies
+          {t.experience.skillsTitle}
         </h2>
 
         <dl className="m-0 flex flex-col gap-3">
@@ -73,7 +72,7 @@ export function ExperiencePage() {
           id="edu-heading"
           className="mb-5 font-mono text-xs font-medium uppercase tracking-wider text-[var(--text-subtle)]"
         >
-          Education
+          {t.experience.educationTitle}
         </h2>
 
         <ul className="m-0 flex list-none flex-col gap-3 p-0">

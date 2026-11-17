@@ -1,17 +1,16 @@
 import { useState } from "react";
 import { PROFILE } from "../data/portfolio";
+import { useLanguage } from "../i18n";
 
 export function ContactPage() {
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
 
   return (
     <>
       <section className="pb-8">
-        <h1 className="mb-2 text-[22px] font-semibold tracking-tight">Contact</h1>
-        <p className="m-0 text-[var(--text-muted)]">
-          Open to Senior Backend, Tech Lead, and system architecture collaborations. Based in{" "}
-          {PROFILE.location}.
-        </p>
+        <h1 className="mb-2 text-[22px] font-semibold tracking-tight">{t.contact.title}</h1>
+        <p className="m-0 text-[var(--text-muted)]">{t.contact.subtitle}</p>
       </section>
 
       <section className="border-t border-[var(--border)] py-9" aria-label="Direct contact">
@@ -32,7 +31,7 @@ export function ContactPage() {
             }}
             className="cursor-pointer border border-[var(--border)] bg-transparent px-2.5 py-1 text-[12.5px] text-[var(--text-muted)] transition-colors hover:border-[var(--border-strong)] hover:bg-[var(--surface)] hover:text-[var(--text)]"
           >
-            {copied ? "Copied" : "Copy email"}
+            {copied ? t.contact.copied : t.contact.copyEmail}
           </button>
         </div>
 

@@ -1,21 +1,21 @@
 import { STORE_ITEMS } from "../data/portfolio";
+import { useLanguage } from "../i18n";
 
 export function JualanPage() {
+  const { t } = useLanguage();
   return (
     <>
       <section className="pb-8">
         <div className="mb-3 flex items-center gap-2.5">
           <span className="inline-block h-3.5 w-1 bg-[var(--accent)]" aria-hidden="true" />
           <span className="font-mono text-xs font-medium tracking-widest text-[var(--text-muted)] uppercase">
-            Store &amp; Merchandise
+            {t.jualan.eyebrow}
           </span>
         </div>
         <h1 className="font-display mb-2 text-[24px] font-bold tracking-tight sm:text-[28px]">
-          Jualan
+          {t.jualan.title}
         </h1>
-        <p className="m-0 text-sm text-[var(--text-muted)]">
-          Daftar barang dagangan. Klik card barang untuk langsung diarahkan ke halaman toko.
-        </p>
+        <p className="m-0 text-sm text-[var(--text-muted)]">{t.jualan.subtitle}</p>
       </section>
 
       <section className="border-t border-[var(--border)] py-9" aria-label="Daftar barang dagangan">
@@ -49,7 +49,7 @@ export function JualanPage() {
               </div>
 
               <span className="font-mono text-xs text-[var(--text-subtle)] transition-colors group-hover:text-[var(--text)]">
-                Buka di {item.platform} →
+                {t.jualan.openAt} {item.platform} →
               </span>
             </a>
           ))}

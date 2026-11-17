@@ -1,21 +1,21 @@
 import { OWN_PRODUCTS } from "../data/portfolio";
+import { useLanguage } from "../i18n";
 
 export function ProdukPage() {
+  const { t } = useLanguage();
   return (
     <>
       <section className="pb-8">
         <div className="mb-3 flex items-center gap-2.5">
           <span className="inline-block h-3.5 w-1 bg-[var(--accent)]" aria-hidden="true" />
           <span className="font-mono text-xs font-medium tracking-widest text-[var(--text-muted)] uppercase">
-            Personal Products &amp; Services
+            {t.produk.eyebrow}
           </span>
         </div>
         <h1 className="font-display mb-2 text-[24px] font-bold tracking-tight sm:text-[28px]">
-          Produk
+          {t.produk.title}
         </h1>
-        <p className="m-0 text-sm text-[var(--text-muted)]">
-          Produk digital dan layanan SaaS milik pribadi yang dibangun dan dikelola secara mandiri.
-        </p>
+        <p className="m-0 text-sm text-[var(--text-muted)]">{t.produk.subtitle}</p>
       </section>
 
       <section className="border-t border-[var(--border)] py-9" aria-label="Daftar produk">
@@ -44,7 +44,7 @@ export function ProdukPage() {
               </div>
 
               <span className="inline-flex shrink-0 items-center gap-1.5 border border-[var(--border-strong)] px-3 py-1.5 font-mono text-xs text-[var(--text)] transition-colors group-hover:border-[var(--accent)] group-hover:text-[var(--accent)]">
-                Kunjungi <span aria-hidden="true">↗</span>
+                {t.produk.visit} <span aria-hidden="true">↗</span>
               </span>
             </a>
           ))}

@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { PROFILE } from "../data/portfolio";
+import { useLanguage } from "../i18n";
 import { CommandPalette } from "./CommandPalette";
 
 export type ThemeMode = "light" | "dark";
@@ -143,6 +144,7 @@ const COMMERCE_NAV: NavItem[] = [
 ];
 
 export function Layout({ children, theme, onToggleTheme }: LayoutProps) {
+  const { lang, toggleLang, t } = useLanguage();
   const [cmdOpen, setCmdOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [collapsed, setCollapsed] = useState(() => {
@@ -188,12 +190,24 @@ export function Layout({ children, theme, onToggleTheme }: LayoutProps) {
         : "border-transparent text-[var(--text-muted)] hover:border-[var(--border-strong)] hover:text-[var(--text)]"
     }`;
 
+  const navLabels: Record<string, string> = {
+    "/": t.nav.overview,
+    "/projects": t.nav.projects,
+    "/experience": t.nav.experience,
+    "/mentoring": t.nav.mentoring,
+    "/contact": t.nav.contact,
+    "/apps": t.nav.apps,
+    "/practice": t.nav.practice,
+    "/produk": t.nav.produk,
+    "/jualan": t.nav.jualan,
+  };
+
   const renderNavGroups = (isCollapsed: boolean) => (
     <div className="flex flex-col gap-6">
       <div>
         {!isCollapsed && (
           <p className="mb-2 pl-3 font-mono text-[10.5px] tracking-widest text-[var(--text-subtle)] uppercase">
-            Profile
+            {t.nav.profile}
           </p>
         )}
         <nav className="flex flex-col gap-0.5" aria-label="Profile navigation">
@@ -202,11 +216,11 @@ export function Layout({ children, theme, onToggleTheme }: LayoutProps) {
               key={item.to}
               to={item.to}
               end={item.end}
-              title={isCollapsed ? item.label : undefined}
+              title={isCollapsed ? navLabels[item.to] : undefined}
               className={({ isActive }) => navLinkClass(isActive, isCollapsed)}
             >
               <span className="shrink-0">{item.icon}</span>
-              {!isCollapsed && <span>{item.label}</span>}
+              {!isCollapsed && <span>{navLabels[item.to]}</span>}
             </NavLink>
           ))}
         </nav>
@@ -215,7 +229,7 @@ export function Layout({ children, theme, onToggleTheme }: LayoutProps) {
       <div>
         {!isCollapsed && (
           <p className="mb-2 pl-3 font-mono text-[10.5px] tracking-widest text-[var(--text-subtle)] uppercase">
-            Workbench
+            {t.nav.workbench}
           </p>
         )}
         <nav className="flex flex-col gap-0.5" aria-label="Workbench navigation">
@@ -223,11 +237,11 @@ export function Layout({ children, theme, onToggleTheme }: LayoutProps) {
             <NavLink
               key={item.to}
               to={item.to}
-              title={isCollapsed ? item.label : undefined}
+              title={isCollapsed ? navLabels[item.to] : undefined}
               className={({ isActive }) => navLinkClass(isActive, isCollapsed)}
             >
               <span className="shrink-0">{item.icon}</span>
-              {!isCollapsed && <span>{item.label}</span>}
+              {!isCollapsed && <span>{navLabels[item.to]}</span>}
             </NavLink>
           ))}
         </nav>
@@ -236,7 +250,7 @@ export function Layout({ children, theme, onToggleTheme }: LayoutProps) {
       <div>
         {!isCollapsed && (
           <p className="mb-2 pl-3 font-mono text-[10.5px] tracking-widest text-[var(--text-subtle)] uppercase">
-            Commerce
+            {t.nav.commerce}
           </p>
         )}
         <nav className="flex flex-col gap-0.5" aria-label="Commerce navigation">
@@ -244,11 +258,11 @@ export function Layout({ children, theme, onToggleTheme }: LayoutProps) {
             <NavLink
               key={item.to}
               to={item.to}
-              title={isCollapsed ? item.label : undefined}
+              title={isCollapsed ? navLabels[item.to] : undefined}
               className={({ isActive }) => navLinkClass(isActive, isCollapsed)}
             >
               <span className="shrink-0">{item.icon}</span>
-              {!isCollapsed && <span>{item.label}</span>}
+              {!isCollapsed && <span>{navLabels[item.to]}</span>}
             </NavLink>
           ))}
         </nav>
@@ -317,7 +331,7 @@ export function Layout({ children, theme, onToggleTheme }: LayoutProps) {
           </div>
 
           <div className={`flex w-full flex-col gap-3 border-t border-[var(--border)] pt-5 ${collapsed ? "items-center" : ""}`}>
-            <div className={`flex items-center gap-2 ${collapsed ? "flex-col" : ""}`}>
+            <div className={`flex items-center gap-1.5 ${collapsed ? "flex-col" : ""}`}>
               <button
                 type="button"
                 onClick={() => setCmdOpen(true)}
@@ -327,8 +341,18 @@ export function Layout({ children, theme, onToggleTheme }: LayoutProps) {
                   collapsed ? "w-8 justify-center px-0" : "flex-1 justify-between px-2.5"
                 }`}
               >
-                {!collapsed && <span>Search</span>}
+                {!collapsed && <span>{t.nav.search}</span>}
                 <span>⌘K</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={toggleLang}
+                aria-label="Switch language"
+                title={lang === "en" ? "Ganti ke Bahasa Indonesia" : "Switch to English"}
+                className="inline-flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center border border-[var(--border)] bg-transparent font-mono text-[11px] font-medium uppercase text-[var(--text-muted)] transition-colors hover:border-[var(--border-strong)] hover:bg-[var(--surface)] hover:text-[var(--accent)]"
+              >
+                {lang.toUpperCase()}
               </button>
 
               <button
@@ -395,6 +419,14 @@ export function Layout({ children, theme, onToggleTheme }: LayoutProps) {
           </div>
 
           <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={toggleLang}
+              aria-label="Switch language"
+              className="inline-flex h-8 w-8 cursor-pointer items-center justify-center border border-[var(--border)] font-mono text-[11px] uppercase text-[var(--text-muted)]"
+            >
+              {lang.toUpperCase()}
+            </button>
             <button
               type="button"
               onClick={() => setCmdOpen(true)}

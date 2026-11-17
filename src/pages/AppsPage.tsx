@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import type { ThemeMode } from "../components/Layout";
+import { useLanguage } from "../i18n";
 import { DevUtilsApp } from "../components/apps/DevUtilsApp";
 import { MarkdownApp } from "../components/apps/MarkdownApp";
 import { RateLimiterApp } from "../components/apps/RateLimiterApp";
@@ -22,6 +23,7 @@ interface AppsPageProps {
 }
 
 export function AppsPage({ onSetTheme }: AppsPageProps) {
+  const { t } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -44,10 +46,8 @@ export function AppsPage({ onSetTheme }: AppsPageProps) {
   return (
     <>
       <section className="pb-10">
-        <h1 className="mb-2 text-[22px] font-semibold tracking-tight">Playground · Mini Apps</h1>
-        <p className="m-0 text-[var(--text-muted)]">
-          Small, practical tools running entirely in your browser with zero backend or tracking.
-        </p>
+        <h1 className="mb-2 text-[22px] font-semibold tracking-tight">{t.apps.title}</h1>
+        <p className="m-0 text-[var(--text-muted)]">{t.apps.subtitle}</p>
       </section>
 
       <section className="border-t border-[var(--border)] py-10" aria-label="Mini Applications">

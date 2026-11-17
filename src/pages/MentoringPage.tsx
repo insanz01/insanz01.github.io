@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { PROFILE } from "../data/portfolio";
+import { useLanguage } from "../i18n";
 
 const AUDIENCE = [
   {
@@ -40,6 +41,7 @@ const TOPICS = [
 ];
 
 export function MentoringPage() {
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
 
   const mailtoHref = `mailto:${PROFILE.email}?subject=${encodeURIComponent(
@@ -54,19 +56,17 @@ export function MentoringPage() {
         <div className="mb-3 flex items-center gap-2.5">
           <span className="inline-block h-3.5 w-1 bg-[var(--accent)]" aria-hidden="true" />
           <span className="font-mono text-xs font-medium tracking-widest text-[var(--text-muted)] uppercase">
-            1-on-1 Private Mentoring
+            {t.mentoring.eyebrow}
           </span>
         </div>
 
         <h1 className="font-display mb-3 text-[28px] font-bold leading-[1.05] tracking-[-0.02em] sm:text-[36px]">
-          Build &amp; ship products{" "}
-          <span className="text-[var(--accent)]">independently in the AI era.</span>
+          {t.mentoring.titleStart}{" "}
+          <span className="text-[var(--accent)]">{t.mentoring.titleAccent}</span>
         </h1>
 
         <p className="m-0 max-w-2xl text-sm text-[var(--text-muted)]">
-          Hands-on technical mentoring drawing from 9 years of building production systems,
-          microservices, and AI-driven products. Focused on real code, clear architecture, and
-          practical shipping—not theory slides.
+          {t.mentoring.subtitle}
         </p>
       </section>
 
@@ -76,7 +76,7 @@ export function MentoringPage() {
           id="who-heading"
           className="mb-5 font-mono text-xs font-medium uppercase tracking-wider text-[var(--text-subtle)]"
         >
-          Who This Is For
+          {t.mentoring.whoTitle}
         </h2>
 
         <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
@@ -100,7 +100,7 @@ export function MentoringPage() {
           id="topics-heading"
           className="mb-5 font-mono text-xs font-medium uppercase tracking-wider text-[var(--text-subtle)]"
         >
-          What We Cover
+          {t.mentoring.whatTitle}
         </h2>
 
         <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
@@ -127,7 +127,7 @@ export function MentoringPage() {
           id="format-heading"
           className="mb-5 font-mono text-xs font-medium uppercase tracking-wider text-[var(--text-subtle)]"
         >
-          Session Formats &amp; Booking
+          {t.mentoring.formatTitle}
         </h2>
 
         <div className="mb-6 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
@@ -159,7 +159,7 @@ export function MentoringPage() {
             href={mailtoHref}
             className="inline-flex items-center gap-2 border border-[var(--accent)] bg-[var(--accent)] px-4 py-2 text-xs font-semibold text-[#090D0C] transition-opacity hover:opacity-90"
           >
-            Request Mentoring via Email <span aria-hidden="true">↗</span>
+            {t.mentoring.bookCta} <span aria-hidden="true">↗</span>
           </a>
 
           <button
@@ -172,7 +172,7 @@ export function MentoringPage() {
             }}
             className="cursor-pointer border border-[var(--border-strong)] bg-transparent px-3 py-2 font-mono text-xs text-[var(--text)] transition-colors hover:bg-[var(--surface-raised)]"
           >
-            {copied ? "Copied email!" : PROFILE.email}
+            {copied ? t.mentoring.copiedEmail : PROFILE.email}
           </button>
         </div>
       </section>

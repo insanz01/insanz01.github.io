@@ -52,7 +52,7 @@ export const PROFILE = {
   shortName: "Insan Kamil",
   role: "Senior Backend Engineer & Tech Lead",
   location: "Jakarta, Indonesia",
-  email: "insan.kamil@worker.com",
+  email: "insankamil002@gmail.com",
   github: "https://github.com/insanz01",
   linkedin: "https://linkedin.com/in/",
   summary:

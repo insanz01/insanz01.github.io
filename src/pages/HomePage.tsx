@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { CORE_EXPERTISE, PROFILE, PROJECTS } from "../data/portfolio";
+import { useLanguage } from "../i18n";
 
 const MINI_APPS = [
   {
@@ -31,6 +32,7 @@ const MINI_APPS = [
 ];
 
 export function HomePage() {
+  const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
 
   return (
@@ -62,18 +64,18 @@ export function HomePage() {
             <div className="mb-3 flex items-center gap-2.5">
               <span className="inline-block h-3.5 w-1 bg-[var(--accent)]" aria-hidden="true" />
               <span className="font-mono text-xs font-medium tracking-widest text-[var(--text-muted)] uppercase">
-                9 Years · Go · Node.js · Python
+                {t.home.eyebrow}
               </span>
             </div>
 
             <h1 className="font-display m-0 mb-3.5 text-[32px] font-bold leading-[1.0] tracking-[-0.03em] text-[var(--text)] sm:text-[42px]">
-              Building fast,
+              {t.home.headlineLine1}
               <br />
-              scalable{" "}
-              <span className="text-[var(--accent)]">backend systems.</span>
+              {t.home.headlineLine2}{" "}
+              <span className="text-[var(--accent)]">{t.home.headlineAccent}</span>
             </h1>
 
-            <p className="m-0 text-sm text-[var(--text-muted)]">{PROFILE.summary}</p>
+            <p className="m-0 text-sm text-[var(--text-muted)]">{t.home.summary}</p>
           </div>
         </div>
       </section>
@@ -85,13 +87,13 @@ export function HomePage() {
             id="expertise-heading"
             className="m-0 font-mono text-xs font-medium uppercase tracking-wider text-[var(--text-subtle)]"
           >
-            Core Expertise
+            {t.home.coreExpertise}
           </h2>
           <Link
             to="/experience"
             className="font-mono text-xs text-[var(--text-muted)] transition-colors hover:text-[var(--accent)]"
           >
-            Full experience <span aria-hidden="true">→</span>
+            {t.home.fullExperience} <span aria-hidden="true">→</span>
           </Link>
         </div>
 
@@ -119,13 +121,13 @@ export function HomePage() {
             id="projects-heading"
             className="m-0 font-mono text-xs font-medium uppercase tracking-wider text-[var(--text-subtle)]"
           >
-            Selected Projects
+            {t.home.selectedProjects}
           </h2>
           <Link
             to="/projects"
             className="font-mono text-xs text-[var(--text-muted)] transition-colors hover:text-[var(--accent)]"
           >
-            All projects <span aria-hidden="true">→</span>
+            {t.home.allProjects} <span aria-hidden="true">→</span>
           </Link>
         </div>
 
@@ -167,13 +169,13 @@ export function HomePage() {
             id="apps-heading"
             className="m-0 font-mono text-xs font-medium uppercase tracking-wider text-[var(--text-subtle)]"
           >
-            Interactive Workbench
+            {t.home.workbenchTitle}
           </h2>
           <Link
             to="/apps"
             className="font-mono text-xs text-[var(--text-muted)] transition-colors hover:text-[var(--accent)]"
           >
-            Open playground <span aria-hidden="true">→</span>
+            {t.home.openPlayground} <span aria-hidden="true">→</span>
           </Link>
         </div>
 
@@ -193,10 +195,10 @@ export function HomePage() {
             className="flex flex-col gap-1 border border-[var(--border)] bg-[var(--surface-raised)] px-4 py-3.5 transition-colors hover:border-[var(--accent)] hover:bg-[var(--surface)]"
           >
             <span className="text-sm font-medium tracking-tight text-[var(--accent)]">
-              Coding Practice →
+              {t.home.practiceTitle}
             </span>
             <span className="text-[13px] leading-snug text-[var(--text-muted)]">
-              HackerRank-style algorithm challenges with sample &amp; hidden test cases.
+              {t.home.practiceDesc}
             </span>
           </Link>
         </div>
@@ -209,13 +211,13 @@ export function HomePage() {
             id="connect-heading"
             className="m-0 font-mono text-xs font-medium uppercase tracking-wider text-[var(--text-subtle)]"
           >
-            Get in Touch
+            {t.home.getInTouch}
           </h2>
           <Link
             to="/contact"
             className="font-mono text-xs text-[var(--text-muted)] transition-colors hover:text-[var(--accent)]"
           >
-            Contact page <span aria-hidden="true">→</span>
+            {t.home.contactPage} <span aria-hidden="true">→</span>
           </Link>
         </div>
 
@@ -236,7 +238,7 @@ export function HomePage() {
             }}
             className="cursor-pointer border border-[var(--border)] bg-transparent px-2.5 py-1 text-[12.5px] text-[var(--text-muted)] transition-colors hover:border-[var(--border-strong)] hover:bg-[var(--surface)] hover:text-[var(--text)]"
           >
-            {copied ? "Copied" : "Copy email"}
+            {copied ? t.home.copied : t.home.copyEmail}
           </button>
         </div>
 
@@ -245,8 +247,8 @@ export function HomePage() {
           className="inline-flex items-center gap-2 border border-[var(--border)] bg-[var(--surface-raised)] px-3.5 py-2 text-[13px] text-[var(--text-muted)] transition-colors hover:border-[var(--accent)] hover:text-[var(--text)]"
         >
           <span className="inline-block h-2 w-2 bg-[var(--accent)]" aria-hidden="true" />
-          <span>Looking for 1-on-1 Private Mentoring in AI-era product development?</span>
-          <span className="font-mono text-xs text-[var(--accent)]">Learn more →</span>
+          <span>{t.home.mentoringBanner}</span>
+          <span className="font-mono text-xs text-[var(--accent)]">{t.home.learnMore} →</span>
         </Link>
       </section>
     </>

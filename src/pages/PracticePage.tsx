@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { PRACTICE_PROBLEMS, type PracticeProblem } from "../data/practiceProblems";
+import { useLanguage } from "../i18n";
 
 interface TestResult {
   label: string;
@@ -18,6 +19,7 @@ function deepEqual(a: unknown, b: unknown): boolean {
 }
 
 export function PracticePage() {
+  const { t } = useLanguage();
   const [problemIdx, setProblemIdx] = useState(0);
   const problem: PracticeProblem = PRACTICE_PROBLEMS[problemIdx];
 
@@ -152,14 +154,12 @@ export function PracticePage() {
     <>
       <section className="pb-8">
         <div className="flex flex-wrap items-baseline justify-between gap-2">
-          <h1 className="mb-2 text-[22px] font-semibold tracking-tight">Coding Practice</h1>
+          <h1 className="mb-2 text-[22px] font-semibold tracking-tight">{t.practice.title}</h1>
           <span className="font-mono text-xs tabular-nums text-[var(--text-subtle)]">
-            {solved.length} / {PRACTICE_PROBLEMS.length} solved
+            {solved.length} / {PRACTICE_PROBLEMS.length} {t.practice.solved}
           </span>
         </div>
-        <p className="m-0 text-[var(--text-muted)]">
-          Algorithm &amp; data-structure challenges evaluated directly in your browser.
-        </p>
+        <p className="m-0 text-[var(--text-muted)]">{t.practice.subtitle}</p>
       </section>
 
       <section className="border-t border-[var(--border)] py-8">

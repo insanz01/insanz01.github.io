@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PROFILE } from "../data/portfolio";
+import { useLanguage } from "../i18n";
 
 interface CommandItem {
   label: string;
@@ -15,6 +16,7 @@ interface CommandPaletteProps {
 }
 
 export function CommandPalette({ open, onClose, onToggleTheme }: CommandPaletteProps) {
+  const { lang, toggleLang } = useLanguage();
   const dialogRef = useRef<HTMLDialogElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
@@ -36,6 +38,11 @@ export function CommandPalette({ open, onClose, onToggleTheme }: CommandPaletteP
     { label: "Open Mini-App: Rate Limiter Simulator", hint: "app", run: () => navigate("/apps#ratelimit") },
     { label: "Open Mini-App: Markdown Scratchpad", hint: "app", run: () => navigate("/apps#markdown") },
     { label: "Toggle Light / Dark Theme", hint: "theme", run: onToggleTheme },
+    {
+      label: lang === "en" ? "Switch Language to Bahasa Indonesia" : "Switch Language to English",
+      hint: "lang",
+      run: toggleLang,
+    },
     {
       label: `Copy Email (${PROFILE.email})`,
       hint: "action",
