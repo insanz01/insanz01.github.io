@@ -16,7 +16,7 @@
       content="Software engineer focused on building reliable web applications, clean interfaces, and interactive developer tools."
     />
     <meta property="og:type" content="website" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -33,7 +33,7 @@
         } catch (e) {}
       })();
     </script>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -41,15 +41,15 @@
     <div class="page">
       <header class="site-header">
         <div class="identity">
-          <a href="#" class="site-title">Insan Kamil</a>
+          <a href="/" class="site-title" aria-current="page">Insan Kamil</a>
           <p class="site-subtitle">Software Engineer · Indonesia</p>
         </div>
 
         <nav class="site-nav" aria-label="Primary">
-          <a href="#projects">Projects</a>
-          <a href="#playground">Playground</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
+          <a href="/projects/">Projects</a>
+          <a href="/apps/">Apps</a>
+          <a href="/experience/">Experience</a>
+          <a href="/contact/">Contact</a>
           <button
             type="button"
             class="cmd-trigger"
@@ -86,34 +86,24 @@
           <p class="muted">
             Currently exploring distributed systems, developer tooling, and pragmatic product
             engineering. Press <kbd class="inline-kbd">⌘K</kbd> (or <kbd class="inline-kbd">Ctrl+K</kbd>)
-            for quick navigation, or try the interactive mini-apps below.
+            to jump between pages and mini-apps.
           </p>
         </section>
 
-        <section id="projects" class="section" aria-labelledby="projects-heading">
+        <section class="section" aria-labelledby="projects-heading">
           <div class="section-header">
             <h2 id="projects-heading">Selected Projects</h2>
-            <a
-              class="section-link"
-              href="https://github.com/insanz01"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub <span aria-hidden="true">↗</span>
+            <a class="section-link" href="/projects/">
+              All projects <span aria-hidden="true">→</span>
             </a>
           </div>
 
           <ul class="item-list">
             <li class="item-row">
-              <a
-                class="item-link"
-                href="https://github.com/insanz01"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a class="item-link" href="/projects/#memofy">
                 <div class="item-main">
                   <span class="item-title">
-                    Memofy <span class="arrow" aria-hidden="true">↗</span>
+                    Memofy <span class="arrow" aria-hidden="true">→</span>
                   </span>
                   <span class="item-desc">
                     Lightweight note-taking and personal knowledge workspace with fast full-text search.
@@ -127,15 +117,10 @@
             </li>
 
             <li class="item-row">
-              <a
-                class="item-link"
-                href="https://github.com/insanz01"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a class="item-link" href="/projects/#pulse">
                 <div class="item-main">
                   <span class="item-title">
-                    Pulse API Gateway <span class="arrow" aria-hidden="true">↗</span>
+                    Pulse API Gateway <span class="arrow" aria-hidden="true">→</span>
                   </span>
                   <span class="item-desc">
                     Reverse proxy and rate-limiting service with per-tenant token buckets and structured logs.
@@ -147,378 +132,47 @@
                 </div>
               </a>
             </li>
-
-            <li class="item-row">
-              <a
-                class="item-link"
-                href="https://github.com/insanz01"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div class="item-main">
-                  <span class="item-title">
-                    Ledger CLI <span class="arrow" aria-hidden="true">↗</span>
-                  </span>
-                  <span class="item-desc">
-                    Plain-text expense tracker that parses CSV bank exports and generates monthly summaries.
-                  </span>
-                </div>
-                <div class="item-meta">
-                  <span class="mono-tag">Node.js · SQLite</span>
-                  <span class="mono-year">2025</span>
-                </div>
-              </a>
-            </li>
           </ul>
         </section>
 
-        <!-- Interactive Playground / Mini-Apps -->
-        <section id="playground" class="section" aria-labelledby="playground-heading">
+        <section class="section" aria-labelledby="apps-heading">
           <div class="section-header">
-            <h2 id="playground-heading">Playground · Mini Apps</h2>
-            <span class="mono-year">Client-side · Zero backend</span>
+            <h2 id="apps-heading">Mini Apps</h2>
+            <a class="section-link" href="/apps/">
+              Open playground <span aria-hidden="true">→</span>
+            </a>
           </div>
 
-          <div class="workbench">
-            <div class="tablist" role="tablist" aria-label="Interactive mini applications">
-              <button
-                type="button"
-                class="tab-btn"
-                role="tab"
-                id="tab-terminal"
-                aria-selected="true"
-                aria-controls="panel-terminal"
-                data-tab="terminal"
-              >
-                Terminal
-              </button>
-              <button
-                type="button"
-                class="tab-btn"
-                role="tab"
-                id="tab-utils"
-                aria-selected="false"
-                aria-controls="panel-utils"
-                data-tab="utils"
-                tabindex="-1"
-              >
-                Dev Utils
-              </button>
-              <button
-                type="button"
-                class="tab-btn"
-                role="tab"
-                id="tab-ratelimit"
-                aria-selected="false"
-                aria-controls="panel-ratelimit"
-                data-tab="ratelimit"
-                tabindex="-1"
-              >
-                Rate Limiter
-              </button>
-              <button
-                type="button"
-                class="tab-btn"
-                role="tab"
-                id="tab-markdown"
-                aria-selected="false"
-                aria-controls="panel-markdown"
-                data-tab="markdown"
-                tabindex="-1"
-              >
-                Markdown
-              </button>
-            </div>
-
-            <!-- 1. Interactive Terminal -->
-            <div
-              class="tab-panel"
-              role="tabpanel"
-              id="panel-terminal"
-              aria-labelledby="tab-terminal"
-            >
-              <div class="terminal-box" id="terminal-box">
-                <div class="terminal-output" id="terminal-output" aria-live="polite"></div>
-                <form class="terminal-form" id="terminal-form" autocomplete="off">
-                  <label for="terminal-input" class="sr-only">Terminal command</label>
-                  <span class="terminal-prompt" aria-hidden="true">kamil@web:~$</span>
-                  <input
-                    id="terminal-input"
-                    class="terminal-input"
-                    type="text"
-                    placeholder="Type 'help' and press Enter..."
-                    spellcheck="false"
-                  />
-                </form>
-              </div>
-              <div class="quick-cmds" aria-label="Quick commands">
-                <button type="button" class="chip-btn" data-cmd="help">help</button>
-                <button type="button" class="chip-btn" data-cmd="whoami">whoami</button>
-                <button type="button" class="chip-btn" data-cmd="projects">projects</button>
-                <button type="button" class="chip-btn" data-cmd="stack">stack</button>
-                <button type="button" class="chip-btn" data-cmd="contact">contact</button>
-                <button type="button" class="chip-btn" data-cmd="clear">clear</button>
-              </div>
-            </div>
-
-            <!-- 2. Dev Utilities Workbench -->
-            <div
-              class="tab-panel"
-              role="tabpanel"
-              id="panel-utils"
-              aria-labelledby="tab-utils"
-              hidden
-            >
-              <div class="subtabs" role="tablist" aria-label="Developer utilities">
-                <button
-                  type="button"
-                  class="subtab-btn is-active"
-                  data-util="json"
-                  aria-pressed="true"
-                >
-                  JSON
-                </button>
-                <button
-                  type="button"
-                  class="subtab-btn"
-                  data-util="jwt"
-                  aria-pressed="false"
-                >
-                  JWT Decoder
-                </button>
-                <button
-                  type="button"
-                  class="subtab-btn"
-                  data-util="time"
-                  aria-pressed="false"
-                >
-                  Timestamp
-                </button>
-              </div>
-
-              <!-- JSON Formatter -->
-              <div class="util-pane" id="util-json">
-                <div class="util-toolbar">
-                  <span class="util-label">Format, minify &amp; validate JSON</span>
-                  <div class="util-actions">
-                    <button type="button" class="mini-btn" id="json-sample">Sample</button>
-                    <button type="button" class="mini-btn" id="json-format">Format</button>
-                    <button type="button" class="mini-btn" id="json-minify">Minify</button>
-                    <button type="button" class="mini-btn" id="json-copy">Copy</button>
-                  </div>
-                </div>
-                <textarea
-                  id="json-input"
-                  class="code-area"
-                  rows="7"
-                  placeholder='{"name": "Insan Kamil", "role": "Software Engineer"}'
-                  spellcheck="false"
-                  aria-label="JSON input"
-                ></textarea>
-                <p class="util-status" id="json-status" aria-live="polite">Ready</p>
-              </div>
-
-              <!-- JWT Decoder -->
-              <div class="util-pane" id="util-jwt" hidden>
-                <div class="util-toolbar">
-                  <span class="util-label">Inspect JWT header &amp; payload locally</span>
-                  <div class="util-actions">
-                    <button type="button" class="mini-btn" id="jwt-sample">Sample</button>
-                    <button type="button" class="mini-btn" id="jwt-clear">Clear</button>
-                  </div>
-                </div>
-                <textarea
-                  id="jwt-input"
-                  class="code-area"
-                  rows="3"
-                  placeholder="Paste a JWT (eyJ...) to decode header and claims"
-                  spellcheck="false"
-                  aria-label="JWT token input"
-                ></textarea>
-                <div class="jwt-grid">
-                  <div>
-                    <span class="jwt-title">Header</span>
-                    <pre class="code-pre" id="jwt-header">—</pre>
-                  </div>
-                  <div>
-                    <span class="jwt-title">Payload <span id="jwt-exp" class="exp-badge"></span></span>
-                    <pre class="code-pre" id="jwt-payload">—</pre>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Timestamp Converter -->
-              <div class="util-pane" id="util-time" hidden>
-                <div class="time-now">
-                  <span>Current Unix Epoch:</span>
-                  <code class="mono-code" id="time-live">—</code>
-                  <button type="button" class="mini-btn" id="time-use-now">Use now</button>
-                </div>
-                <div class="time-grid">
-                  <div class="field-group">
-                    <label for="time-unix" class="field-label">Unix Timestamp (s or ms)</label>
-                    <input
-                      id="time-unix"
-                      class="mono-input"
-                      type="text"
-                      placeholder="e.g. 1763385600"
-                      spellcheck="false"
-                    />
-                  </div>
-                  <div class="field-group">
-                    <label for="time-iso" class="field-label">ISO 8601 (UTC)</label>
-                    <input
-                      id="time-iso"
-                      class="mono-input"
-                      type="text"
-                      placeholder="e.g. 2026-11-17T13:20:00.000Z"
-                      spellcheck="false"
-                    />
-                  </div>
-                </div>
-                <p class="util-status" id="time-local">Local: —</p>
-              </div>
-            </div>
-
-            <!-- 3. Rate-Limiter / Token Bucket Simulator -->
-            <div
-              class="tab-panel"
-              role="tabpanel"
-              id="panel-ratelimit"
-              aria-labelledby="tab-ratelimit"
-              hidden
-            >
-              <div class="rl-controls">
-                <label class="rl-slider">
-                  <span>Bucket Capacity: <strong id="rl-cap-val">5</strong></span>
-                  <input id="rl-cap" type="range" min="1" max="10" value="5" />
-                </label>
-                <label class="rl-slider">
-                  <span>Refill Rate: <strong id="rl-rate-val">1.0</strong> req/s</span>
-                  <input id="rl-rate" type="range" min="0.5" max="5" step="0.5" value="1" />
-                </label>
-              </div>
-
-              <div class="rl-bucket">
-                <div class="rl-bucket-head">
-                  <span class="util-label">Available Tokens</span>
-                  <span class="mono-year" id="rl-token-count">5 / 5</span>
-                </div>
-                <div class="rl-slots" id="rl-slots" aria-hidden="true"></div>
-              </div>
-
-              <div class="rl-actions">
-                <button type="button" class="mini-btn is-primary" id="rl-send">Send Request</button>
-                <button type="button" class="mini-btn" id="rl-burst">Burst ×5</button>
-                <button type="button" class="mini-btn" id="rl-reset">Reset</button>
-              </div>
-
-              <ul class="rl-log" id="rl-log" aria-live="polite" aria-label="Request log"></ul>
-            </div>
-
-            <!-- 4. Quick Markdown Scratchpad -->
-            <div
-              class="tab-panel"
-              role="tabpanel"
-              id="panel-markdown"
-              aria-labelledby="tab-markdown"
-              hidden
-            >
-              <div class="util-toolbar">
-                <span class="util-label">Auto-saved to browser storage</span>
-                <div class="util-actions">
-                  <button type="button" class="mini-btn is-active" id="md-mode-split">Split</button>
-                  <button type="button" class="mini-btn" id="md-mode-edit">Edit</button>
-                  <button type="button" class="mini-btn" id="md-mode-preview">Preview</button>
-                  <button type="button" class="mini-btn" id="md-copy">Copy MD</button>
-                  <button type="button" class="mini-btn" id="md-reset">Reset</button>
-                </div>
-              </div>
-              <div class="md-workspace" id="md-workspace" data-mode="split">
-                <textarea
-                  id="md-input"
-                  class="code-area md-editor"
-                  rows="10"
-                  aria-label="Markdown editor"
-                  spellcheck="false"
-                ></textarea>
-                <div class="md-preview" id="md-preview" aria-label="Markdown preview"></div>
-              </div>
-            </div>
+          <div class="miniapp-grid">
+            <a class="miniapp-card" href="/apps/#terminal">
+              <span class="miniapp-name">Terminal</span>
+              <span class="miniapp-desc">Interactive shell for exploring profile, stack, and shortcuts.</span>
+            </a>
+            <a class="miniapp-card" href="/apps/#utils">
+              <span class="miniapp-name">Dev Utils</span>
+              <span class="miniapp-desc">JSON formatter, local JWT decoder, and Unix timestamp converter.</span>
+            </a>
+            <a class="miniapp-card" href="/apps/#ratelimit">
+              <span class="miniapp-name">Rate Limiter</span>
+              <span class="miniapp-desc">Real-time Token Bucket simulator with capacity &amp; burst controls.</span>
+            </a>
+            <a class="miniapp-card" href="/apps/#markdown">
+              <span class="miniapp-name">Markdown</span>
+              <span class="miniapp-desc">Split-pane scratchpad with live preview and local persistence.</span>
+            </a>
           </div>
         </section>
 
-        <section id="experience" class="section" aria-labelledby="experience-heading">
+        <section class="section" aria-labelledby="connect-heading">
           <div class="section-header">
-            <h2 id="experience-heading">Experience</h2>
+            <h2 id="connect-heading">Get in Touch</h2>
+            <a class="section-link" href="/contact/">
+              Contact page <span aria-hidden="true">→</span>
+            </a>
           </div>
-
-          <ul class="exp-list">
-            <li class="exp-item">
-              <div class="exp-top">
-                <div>
-                  <h3 class="exp-role">Full-Stack Software Engineer</h3>
-                  <p class="exp-company">Independent / Freelance</p>
-                </div>
-                <span class="mono-year">2024 — Present</span>
-              </div>
-              <p class="exp-desc">
-                Designed and shipped end-to-end web products, REST/GraphQL backends, and automated
-                CI/CD pipelines for small teams and early-stage founders.
-              </p>
-            </li>
-
-            <li class="exp-item">
-              <div class="exp-top">
-                <div>
-                  <h3 class="exp-role">Software Engineer</h3>
-                  <p class="exp-company">Product Studio</p>
-                </div>
-                <span class="mono-year">2022 — 2024</span>
-              </div>
-              <p class="exp-desc">
-                Built internal dashboards, payment integrations, and data-heavy React interfaces while
-                improving API response times and test coverage.
-              </p>
-            </li>
-          </ul>
-        </section>
-
-        <section class="section" aria-labelledby="stack-heading">
-          <div class="section-header">
-            <h2 id="stack-heading">Core Stack</h2>
-          </div>
-
-          <dl class="stack-grid">
-            <div class="stack-row">
-              <dt>Languages</dt>
-              <dd>TypeScript, JavaScript, Go, SQL, Python</dd>
-            </div>
-            <div class="stack-row">
-              <dt>Frontend</dt>
-              <dd>HTML/CSS, React, Next.js, Tailwind CSS</dd>
-            </div>
-            <div class="stack-row">
-              <dt>Backend &amp; Data</dt>
-              <dd>Node.js, PostgreSQL, Redis, REST, GraphQL</dd>
-            </div>
-            <div class="stack-row">
-              <dt>Infrastructure</dt>
-              <dd>Docker, GitHub Actions, Linux, Nginx</dd>
-            </div>
-          </dl>
-        </section>
-
-        <section id="contact" class="section" aria-labelledby="contact-heading">
-          <div class="section-header">
-            <h2 id="contact-heading">Contact</h2>
-          </div>
-
           <p class="contact-copy">
-            Open to interesting engineering problems, collaborations, and full-stack roles. The
-            fastest way to reach me is by email.
+            Open to interesting engineering problems, collaborations, and full-stack roles.
           </p>
-
           <div class="contact-actions">
             <a class="contact-link" href="mailto:insankamil002@gmail.com">
               insankamil002@gmail.com
@@ -532,24 +186,6 @@
               Copy email
             </button>
           </div>
-
-          <ul class="social-links">
-            <li>
-              <a href="https://github.com/insanz01" target="_blank" rel="noopener noreferrer">
-                GitHub <span aria-hidden="true">↗</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer">
-                LinkedIn <span aria-hidden="true">↗</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/" target="_blank" rel="noopener noreferrer">
-                X / Twitter <span aria-hidden="true">↗</span>
-              </a>
-            </li>
-          </ul>
         </section>
       </main>
 
@@ -559,7 +195,6 @@
       </footer>
     </div>
 
-    <!-- Command Palette Dialog (Cmd+K / Ctrl+K) -->
     <dialog class="cmd-dialog" id="cmd-dialog" aria-label="Command palette">
       <div class="cmd-box">
         <div class="cmd-search-row">
@@ -568,7 +203,7 @@
             id="cmd-input"
             class="cmd-input"
             type="text"
-            placeholder="Jump to section, open mini-app, or toggle theme..."
+            placeholder="Go to page, open mini-app, or toggle theme..."
             autocomplete="off"
             spellcheck="false"
             aria-label="Search commands"
@@ -579,7 +214,6 @@
       </div>
     </dialog>
 
-    <script src="./script.js"></script>
-    <script src="./apps.js"></script>
+    <script src="/script.js"></script>
   </body>
 </html>

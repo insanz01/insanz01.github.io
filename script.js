@@ -69,52 +69,59 @@
   if (cmdDialog && cmdInput && cmdList) {
     var commands = [
       {
-        label: "Open Playground: Terminal",
+        label: "Go to Home",
+        hint: "page",
+        run: function () {
+          window.location.href = "/";
+        },
+      },
+      {
+        label: "Go to Projects",
+        hint: "page",
+        run: function () {
+          window.location.href = "/projects/";
+        },
+      },
+      {
+        label: "Go to Experience & Stack",
+        hint: "page",
+        run: function () {
+          window.location.href = "/experience/";
+        },
+      },
+      {
+        label: "Go to Contact",
+        hint: "page",
+        run: function () {
+          window.location.href = "/contact/";
+        },
+      },
+      {
+        label: "Open Mini-App: Terminal",
         hint: "app",
         run: function () {
           jumpToPlayground("terminal");
         },
       },
       {
-        label: "Open Playground: Dev Utils (JSON / JWT / Time)",
+        label: "Open Mini-App: Dev Utils (JSON / JWT / Time)",
         hint: "app",
         run: function () {
           jumpToPlayground("utils");
         },
       },
       {
-        label: "Open Playground: Rate Limiter Simulator",
+        label: "Open Mini-App: Rate Limiter Simulator",
         hint: "app",
         run: function () {
           jumpToPlayground("ratelimit");
         },
       },
       {
-        label: "Open Playground: Markdown Scratchpad",
+        label: "Open Mini-App: Markdown Scratchpad",
         hint: "app",
         run: function () {
           jumpToPlayground("markdown");
-        },
-      },
-      {
-        label: "Jump to Selected Projects",
-        hint: "section",
-        run: function () {
-          scrollToId("projects");
-        },
-      },
-      {
-        label: "Jump to Experience",
-        hint: "section",
-        run: function () {
-          scrollToId("experience");
-        },
-      },
-      {
-        label: "Jump to Contact",
-        hint: "section",
-        run: function () {
-          scrollToId("contact");
         },
       },
       {
@@ -143,16 +150,15 @@
     var filtered = commands.slice();
     var activeIdx = 0;
 
-    function scrollToId(id) {
-      var el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-
     function jumpToPlayground(tabId) {
       if (typeof window.__openPlaygroundTab === "function") {
         window.__openPlaygroundTab(tabId);
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, "", "#" + tabId);
+        }
+      } else {
+        window.location.href = "/apps/#" + tabId;
       }
-      scrollToId("playground");
     }
 
     function renderList() {

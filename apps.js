@@ -4,6 +4,8 @@
   var tabPanels = Array.prototype.slice.call(document.querySelectorAll(".tab-panel"));
 
   function activateTab(tabId) {
+    var valid = ["terminal", "utils", "ratelimit", "markdown"];
+    if (valid.indexOf(tabId) === -1) return;
     tabButtons.forEach(function (btn) {
       var isMatch = btn.getAttribute("data-tab") === tabId;
       btn.setAttribute("aria-selected", isMatch ? "true" : "false");
@@ -17,9 +19,21 @@
 
   window.__openPlaygroundTab = activateTab;
 
+  function syncTabFromHash() {
+    var hash = (window.location.hash || "").replace(/^#/, "");
+    if (hash) activateTab(hash);
+  }
+
+  syncTabFromHash();
+  window.addEventListener("hashchange", syncTabFromHash);
+
   tabButtons.forEach(function (btn, idx) {
     btn.addEventListener("click", function () {
-      activateTab(btn.getAttribute("data-tab"));
+      var tabId = btn.getAttribute("data-tab");
+      activateTab(tabId);
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, "", "#" + tabId);
+      }
     });
 
     btn.addEventListener("keydown", function (e) {
