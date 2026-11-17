@@ -119,6 +119,29 @@ const WORKBENCH_NAV: NavItem[] = [
   },
 ];
 
+const COMMERCE_NAV: NavItem[] = [
+  {
+    to: "/produk",
+    label: "Produk",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+      </svg>
+    ),
+  },
+  {
+    to: "/jualan",
+    label: "Jualan",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <path d="M16 10a4 4 0 0 1-8 0" />
+      </svg>
+    ),
+  },
+];
+
 export function Layout({ children, theme, onToggleTheme }: LayoutProps) {
   const [cmdOpen, setCmdOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -197,6 +220,27 @@ export function Layout({ children, theme, onToggleTheme }: LayoutProps) {
         )}
         <nav className="flex flex-col gap-0.5" aria-label="Workbench navigation">
           {WORKBENCH_NAV.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              title={isCollapsed ? item.label : undefined}
+              className={({ isActive }) => navLinkClass(isActive, isCollapsed)}
+            >
+              <span className="shrink-0">{item.icon}</span>
+              {!isCollapsed && <span>{item.label}</span>}
+            </NavLink>
+          ))}
+        </nav>
+      </div>
+
+      <div>
+        {!isCollapsed && (
+          <p className="mb-2 pl-3 font-mono text-[10.5px] tracking-widest text-[var(--text-subtle)] uppercase">
+            Commerce
+          </p>
+        )}
+        <nav className="flex flex-col gap-0.5" aria-label="Commerce navigation">
+          {COMMERCE_NAV.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}

@@ -30,6 +30,23 @@ export interface EducationItem {
   school: string;
 }
 
+export interface OwnProductItem {
+  id: string;
+  name: string;
+  tagline: string;
+  description: string;
+  category: string;
+  url: string;
+}
+
+export interface StoreItem {
+  id: string;
+  name: string;
+  platform: string;
+  description: string;
+  url: string;
+}
+
 export const PROFILE = {
   name: "Muhammad Insan Kamil",
   shortName: "Insan Kamil",
@@ -182,4 +199,26 @@ export const STACK: StackCategory[] = [
 export const EDUCATION: EducationItem[] = [
   { degree: "Bachelor of Informatics (S1)", school: "Universitas Ahmad Dahlan Yogyakarta" },
   { degree: "High School (IPA)", school: "Islamic Center Binbaz Yogyakarta" },
+];
+
+export const OWN_PRODUCTS: OwnProductItem[] = [
+  {
+    id: "jualink",
+    name: "jualink.id",
+    tagline: "Link-in-bio & micro-storefront untuk jualan online",
+    description:
+      "Layanan SaaS pribadi untuk membuat halaman katalog, link jualan, dan etalase digital yang cepat, ringan, dan siap pakai bagi kreator maupun UMKM.",
+    category: "SaaS · Micro-Commerce",
+    url: "https://jualink.id",
+  },
+];
+
+export const STORE_ITEMS: StoreItem[] = [
+  {
+    id: "tokopedia-1",
+    name: "Produk Pilihan di Tokopedia",
+    platform: "Tokopedia",
+    description: "Klik card ini untuk langsung menuju halaman produk di toko Tokopedia.",
+    url: "https://tk.tokopedia.com/ZSpnJuUnX/",
+  },
 ];

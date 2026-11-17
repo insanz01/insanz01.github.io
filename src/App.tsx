@@ -4,8 +4,10 @@ import { AppsPage } from "./pages/AppsPage";
 import { ContactPage } from "./pages/ContactPage";
 import { ExperiencePage } from "./pages/ExperiencePage";
 import { HomePage } from "./pages/HomePage";
+import { JualanPage } from "./pages/JualanPage";
 import { MentoringPage } from "./pages/MentoringPage";
 import { PracticePage } from "./pages/PracticePage";
+import { ProdukPage } from "./pages/ProdukPage";
 import { ProjectsPage } from "./pages/ProjectsPage";
 
 export function App() {
@@ -21,6 +23,8 @@ export function App() {
           <Route path="/practice" element={<PracticePage />} />
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/mentoring" element={<MentoringPage />} />
+          <Route path="/produk" element={<ProdukPage />} />
+          <Route path="/jualan" element={<JualanPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

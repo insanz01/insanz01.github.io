@@ -27,6 +27,8 @@ export function CommandPalette({ open, onClose, onToggleTheme }: CommandPaletteP
     { label: "Go to Coding Practice (HackerRank-style)", hint: "page", run: () => navigate("/practice") },
     { label: "Go to Experience & Stack", hint: "page", run: () => navigate("/experience") },
     { label: "Go to Private Mentoring", hint: "page", run: () => navigate("/mentoring") },
+    { label: "Go to Produk (jualink.id)", hint: "page", run: () => navigate("/produk") },
+    { label: "Go to Jualan (Tokopedia)", hint: "page", run: () => navigate("/jualan") },
     { label: "Go to Contact", hint: "page", run: () => navigate("/contact") },
     { label: "Open Mini-App: Terminal", hint: "app", run: () => navigate("/apps#terminal") },
     { label: "Open Mini-App: JS Puzzles (Grasshopper-style)", hint: "app", run: () => navigate("/apps#puzzle") },
