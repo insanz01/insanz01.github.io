@@ -210,14 +210,14 @@ export function Layout({ children, theme, onToggleTheme }: LayoutProps) {
       </a>
 
       <div
-        className={`mx-auto grid min-h-screen max-w-[1060px] grid-cols-1 px-5 sm:px-6 ${
-          collapsed ? "lg:grid-cols-[64px_1fr]" : "lg:grid-cols-[248px_1fr]"
+        className={`grid min-h-screen w-full grid-cols-1 ${
+          collapsed ? "lg:grid-cols-[64px_1fr]" : "lg:grid-cols-[260px_1fr]"
         }`}
       >
         {/* Desktop Collapsible Left Sidebar */}
         <aside
           className={`hidden lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:justify-between lg:border-r lg:border-[var(--border)] lg:py-10 ${
-            collapsed ? "lg:items-center lg:px-2" : "lg:pr-6"
+            collapsed ? "lg:items-center lg:px-2" : "lg:px-6"
           }`}
         >
           <div className="w-full">
@@ -318,7 +318,7 @@ export function Layout({ children, theme, onToggleTheme }: LayoutProps) {
         </aside>
 
         {/* Mobile Top Header */}
-        <header className="flex items-center justify-between border-b border-[var(--border)] py-4 lg:hidden">
+        <header className="flex items-center justify-between border-b border-[var(--border)] px-5 py-4 sm:px-6 lg:hidden">
           <div className="flex items-center gap-2.5">
             <button
               type="button"
@@ -397,7 +397,7 @@ export function Layout({ children, theme, onToggleTheme }: LayoutProps) {
         )}
 
         {/* Main Content Column */}
-        <div className="flex min-w-0 flex-col justify-between py-8 lg:py-10 lg:pl-12">
+        <div className="flex min-w-0 flex-col justify-between px-5 py-8 sm:px-8 lg:px-12 lg:py-10">
           <main id="main" className="min-w-0">
             {children}
           </main>
