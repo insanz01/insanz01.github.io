@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { PROFILE, PROJECTS } from "../data/portfolio";
+import { CORE_EXPERTISE, PROFILE, PROJECTS } from "../data/portfolio";
 
 const MINI_APPS = [
   {
@@ -36,10 +36,9 @@ export function HomePage() {
   return (
     <>
       {/* Asymmetric Two-Column Hero */}
-      <section className="pb-12 pt-2" aria-label="About">
-        <div className="grid grid-cols-1 items-center gap-7 sm:grid-cols-[152px_1fr] sm:gap-10">
-          {/* Left Graphic (~25%): Original chunky pixel-geometric IK mark */}
-          <div className="w-[112px] sm:w-[152px]" aria-hidden="true">
+      <section className="pb-12 pt-1" aria-label="About">
+        <div className="grid grid-cols-1 items-center gap-7 sm:grid-cols-[140px_1fr] sm:gap-9">
+          <div className="w-[104px] sm:w-[140px]" aria-hidden="true">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 224 224"
@@ -59,35 +58,63 @@ export function HomePage() {
             </svg>
           </div>
 
-          {/* Right Message Block (~75%) */}
           <div>
             <div className="mb-3 flex items-center gap-2.5">
               <span className="inline-block h-3.5 w-1 bg-[var(--accent)]" aria-hidden="true" />
               <span className="font-mono text-xs font-medium tracking-widest text-[var(--text-muted)] uppercase">
-                Full-Stack · Systems · Tools
+                9 Years · Go · Node.js · Python
               </span>
             </div>
 
-            <h1 className="font-display m-0 mb-4 text-[34px] font-bold leading-[1.0] tracking-[-0.03em] text-[var(--text)] sm:text-[44px]">
+            <h1 className="font-display m-0 mb-3.5 text-[32px] font-bold leading-[1.0] tracking-[-0.03em] text-[var(--text)] sm:text-[42px]">
               Building fast,
               <br />
-              maintainable{" "}
-              <span className="text-[var(--accent)]">web systems.</span>
+              scalable{" "}
+              <span className="text-[var(--accent)]">backend systems.</span>
             </h1>
 
-            <p className="m-0 text-sm text-[var(--text-muted)]">
-              Focused on pragmatic architecture, crisp interfaces, and developer tooling. Press{" "}
-              <kbd className="border border-[var(--border)] bg-[var(--surface)] px-1.5 py-0.5 font-mono text-[11px] text-[var(--text)]">
-                ⌘K
-              </kbd>{" "}
-              to navigate pages or launch mini-apps.
-            </p>
+            <p className="m-0 text-sm text-[var(--text-muted)]">{PROFILE.summary}</p>
           </div>
         </div>
       </section>
 
-      <section className="border-t border-[var(--border)] py-10" aria-labelledby="projects-heading">
-        <div className="mb-6 flex items-baseline justify-between gap-3">
+      {/* Core Expertise */}
+      <section className="border-t border-[var(--border)] py-9" aria-labelledby="expertise-heading">
+        <div className="mb-5 flex items-baseline justify-between gap-3">
+          <h2
+            id="expertise-heading"
+            className="m-0 font-mono text-xs font-medium uppercase tracking-wider text-[var(--text-subtle)]"
+          >
+            Core Expertise
+          </h2>
+          <Link
+            to="/experience"
+            className="font-mono text-xs text-[var(--text-muted)] transition-colors hover:text-[var(--accent)]"
+          >
+            Full experience <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+          {CORE_EXPERTISE.map((item) => (
+            <div
+              key={item.title}
+              className="border border-[var(--border)] bg-[var(--surface-raised)] px-4 py-3.5"
+            >
+              <h3 className="m-0 mb-1 text-sm font-medium tracking-tight text-[var(--text)]">
+                {item.title}
+              </h3>
+              <p className="m-0 text-[13px] leading-snug text-[var(--text-muted)]">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Selected Projects */}
+      <section className="border-t border-[var(--border)] py-9" aria-labelledby="projects-heading">
+        <div className="mb-5 flex items-baseline justify-between gap-3">
           <h2
             id="projects-heading"
             className="m-0 font-mono text-xs font-medium uppercase tracking-wider text-[var(--text-subtle)]"
@@ -105,18 +132,20 @@ export function HomePage() {
         <ul className="m-0 flex list-none flex-col gap-2 p-0">
           {PROJECTS.slice(0, 2).map((project) => (
             <li key={project.id}>
-              <Link
-                to={`/projects#${project.id}`}
-                className="group -mx-4 flex flex-col gap-2 px-4 py-3.5 transition-colors hover:bg-[var(--surface)]"
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group -mx-4 flex flex-col gap-1.5 px-4 py-3 transition-colors hover:bg-[var(--surface)]"
               >
                 <div className="flex flex-col gap-1">
                   <span className="inline-flex items-center gap-1.5 font-medium tracking-tight">
                     {project.title}{" "}
                     <span
                       aria-hidden="true"
-                      className="text-[13px] text-[var(--text-subtle)] transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--accent)]"
+                      className="text-[13px] text-[var(--text-subtle)] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[var(--accent)]"
                     >
-                      →
+                      ↗
                     </span>
                   </span>
                   <span className="text-sm text-[var(--text-muted)]">{project.description}</span>
@@ -125,14 +154,15 @@ export function HomePage() {
                   <span>{project.stack}</span>
                   <span>{project.year}</span>
                 </div>
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
       </section>
 
-      <section className="border-t border-[var(--border)] py-10" aria-labelledby="apps-heading">
-        <div className="mb-6 flex items-baseline justify-between gap-3">
+      {/* Interactive Workbench */}
+      <section className="border-t border-[var(--border)] py-9" aria-labelledby="apps-heading">
+        <div className="mb-5 flex items-baseline justify-between gap-3">
           <h2
             id="apps-heading"
             className="m-0 font-mono text-xs font-medium uppercase tracking-wider text-[var(--text-subtle)]"
@@ -172,8 +202,9 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="border-t border-[var(--border)] py-10" aria-labelledby="connect-heading">
-        <div className="mb-6 flex items-baseline justify-between gap-3">
+      {/* Contact */}
+      <section className="border-t border-[var(--border)] pt-9" aria-labelledby="connect-heading">
+        <div className="mb-4 flex items-baseline justify-between gap-3">
           <h2
             id="connect-heading"
             className="m-0 font-mono text-xs font-medium uppercase tracking-wider text-[var(--text-subtle)]"
@@ -187,10 +218,6 @@ export function HomePage() {
             Contact page <span aria-hidden="true">→</span>
           </Link>
         </div>
-
-        <p className="mb-4 text-[var(--text-muted)]">
-          Open to interesting engineering problems, collaborations, and full-stack roles.
-        </p>
 
         <div className="flex flex-wrap items-center gap-3">
           <a

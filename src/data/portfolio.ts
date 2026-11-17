@@ -11,6 +11,12 @@ export interface ExperienceItem {
   role: string;
   company: string;
   period: string;
+  stack?: string;
+  highlights: string[];
+}
+
+export interface ExpertiseItem {
+  title: string;
   description: string;
 }
 
@@ -19,66 +25,161 @@ export interface StackCategory {
   items: string;
 }
 
+export interface EducationItem {
+  degree: string;
+  school: string;
+}
+
 export const PROFILE = {
-  name: "Insan Kamil",
-  role: "Software Engineer",
-  location: "Indonesia",
-  email: "insankamil002@gmail.com",
+  name: "Muhammad Insan Kamil",
+  shortName: "Insan Kamil",
+  role: "Senior Backend Engineer & Tech Lead",
+  location: "Jakarta, Indonesia",
+  email: "insan.kamil@worker.com",
   github: "https://github.com/insanz01",
   linkedin: "https://linkedin.com/in/",
-  twitter: "https://x.com/",
+  summary:
+    "Backend Engineer with 9 years of professional experience since 2017, evolving from Frontend development into a specialized Backend expert and Technical Lead. Proficient in architecting high-scale systems, microservices, and AI-driven automation using Go, Node.js, and Python.",
 };
+
+export const CORE_EXPERTISE: ExpertiseItem[] = [
+  {
+    title: "AI & Automation",
+    description:
+      "RAG systems, LLM fine-tuning (Gemini/OpenAI), and AI-driven business logic accuracy.",
+  },
+  {
+    title: "Performance Backend",
+    description:
+      "High-concurrency systems in Golang & Node.js with optimized query engines and low latency.",
+  },
+  {
+    title: "System Modernization",
+    description:
+      "Strategic migration from legacy monoliths to scalable microservices with zero downtime.",
+  },
+  {
+    title: "Engineering Leadership",
+    description:
+      "Establishing CI/CD standards, mentoring dev teams, and architecting long-term tech roadmaps.",
+  },
+];
 
 export const PROJECTS: Project[] = [
   {
-    id: "memofy",
-    title: "Memofy",
+    id: "crm-coster",
+    title: "CRM Coster",
     description:
-      "Lightweight note-taking and personal knowledge workspace with fast full-text search, keyboard-first navigation, and markdown export.",
-    stack: "TypeScript · React · PostgreSQL",
-    year: "2026",
-    url: "https://github.com/insanz01",
+      "Advanced Customer Relationship Management system with automated lead tracking and real-time sales analytics.",
+    stack: "Node.js · PostgreSQL · React",
+    year: "Live",
+    url: "https://crm.coster.id",
   },
   {
-    id: "pulse",
-    title: "Pulse API Gateway",
+    id: "beranda-toko",
+    title: "Beranda Toko CMS",
     description:
-      "Reverse proxy and rate-limiting service with per-tenant token buckets, circuit breaking, and structured JSON logs.",
-    stack: "Go · Redis · Docker",
-    year: "2025",
-    url: "https://github.com/insanz01",
+      "Modular Content Management System optimized for high-performance e-commerce storefronts and multi-channel catalogs.",
+    stack: "Headless CMS · REST API · Tailwind CSS",
+    year: "Live",
+    url: "https://cms.berandatoko.com",
   },
   {
-    id: "ledger",
-    title: "Ledger CLI",
+    id: "stq-alkautsar",
+    title: "Sekolah Tahfidzul Al Kautsar",
     description:
-      "Plain-text expense tracker that parses CSV bank exports, categorizes recurring transactions, and generates monthly summaries.",
-    stack: "Node.js · SQLite",
-    year: "2025",
-    url: "https://github.com/insanz01",
+      "Digital management platform for tracking Quranic memorization progress and student academic records.",
+    stack: "Full-Stack Web · MySQL",
+    year: "Live",
+    url: "https://stqalkautsar.com",
   },
 ];
 
 export const EXPERIENCE: ExperienceItem[] = [
   {
-    role: "Full-Stack Software Engineer",
-    company: "Independent / Freelance",
-    period: "2024 — Present",
-    description:
-      "Designed and shipped end-to-end web products, REST/GraphQL backends, and automated CI/CD pipelines for small teams and early-stage founders.",
+    role: "Senior Backend Engineer",
+    company: "Periksa.ID (Jakarta)",
+    period: "Apr 2024 – Present",
+    stack: "Golang (Gin), MySQL, MongoDB, Gemini AI, OpenAI, WebSockets, RAG, LLM Fine-tuning",
+    highlights: [
+      "Engineered Gemini AI & OpenAI services with RAG, improving clinical response accuracy by 85%.",
+      "Orchestrated Medical, HR, and Reporting migration from Node.js to Golang (3x faster processing).",
+      "Designed intelligent rate limiter & caching layers, reducing annual third-party API costs by 30%.",
+      "Built WhatsApp Medical Bots & WebSocket infrastructure handling thousands of concurrent sessions.",
+    ],
   },
   {
-    role: "Software Engineer",
-    company: "Product Studio",
-    period: "2022 — 2024",
-    description:
-      "Built internal dashboards, payment integrations, and data-heavy React interfaces while improving API response times and test coverage.",
+    role: "Freelance Backend Engineer",
+    company: "Hudoro Solusi Digital",
+    period: "Feb 2024 – Aug 2024",
+    stack: "Node.js, MySQL, Google Pub/Sub",
+    highlights: [
+      "Developed TUV NORD Central & Budgeting App backend in Node.js with 99.9% uptime.",
+      "Implemented Google Pub/Sub for real-time asynchronous communication across microservices.",
+      "Streamlined budgeting reconciliation, reducing manual data entry errors by 40%.",
+    ],
+  },
+  {
+    role: "Full Stack Engineer",
+    company: "Skyshi",
+    period: "Feb 2024 – Jun 2024",
+    stack: "React.js, Tailwind CSS, Node.js, MongoDB, Redis",
+    highlights: [
+      "Optimized AcuityQuick & Moladin (Mofi Engine) with Redis caching, cutting API latency by 60% (sub-200ms).",
+      "Implemented Microfrontend architecture, boosting squad independence and dev velocity by 30%.",
+    ],
+  },
+  {
+    role: "Full Stack Engineer & Tech Lead",
+    company: "Memofy Dev Studio",
+    period: "Sep 2020 – Sep 2023",
+    stack: "Node.js, React, Socket.io, WebRTC, MySQL, Redis",
+    highlights: [
+      "Built Rekmed (Medical Records) with RBAC & encryption (50% faster retrieval) and MEMODUL headless CMS.",
+      "Delivered SAHABATMU (WebRTC/Socket.io), Smart Attendance (99% unauthorized reduction), and Digiteller POS (50+ stores).",
+      "Architected Forma handling 10,000+ responses/hour and mentored a team of 5+ developers with CI/CD standards.",
+    ],
+  },
+  {
+    role: "Full Stack & Backend Engineer",
+    company: "Jatis Mobile",
+    period: "Apr 2022 – Aug 2023",
+    stack: "Golang (Gin/Echo), PostgreSQL, RabbitMQ, Next.js",
+    highlights: [
+      "Built high-concurrency Golang APIs and WhatsApp Business API workflows for Bakuul & Chat Commerce.",
+      "Designed an idempotency layer for Jessie (Lotte Service) multi-channel payment gateways.",
+      "Engineered RabbitMQ data pipelines for CRM Electrolux handling 100k+ mass record imports.",
+    ],
+  },
+  {
+    role: "Full Stack Developer",
+    company: "PT ID Metafora (Yogyakarta)",
+    period: "Jan 2020 – Mar 2020",
+    stack: "CodeIgniter 4, Express.js, Vue.js, React.js",
+    highlights: [
+      "Developed scalable crowdfunding systems, online store catalogs, and mobile hybrid applications.",
+    ],
+  },
+  {
+    role: "Frontend Engineer",
+    company: "PT Santara Daya Inspiratama (Yogyakarta)",
+    period: "Jan 2019 – Jun 2019",
+    stack: "Vue.js, Vuetify",
+    highlights: [
+      "Led system rewrite of Santara.co.id & Photostory Dashboard from AngularJS to Vue.js.",
+      "Optimized dividend calculation logic and real-time investment portfolio tracking.",
+    ],
   },
 ];
 
 export const STACK: StackCategory[] = [
-  { label: "Languages", items: "TypeScript, JavaScript, Go, SQL, Python" },
-  { label: "Frontend", items: "HTML/CSS, React, Next.js, Tailwind CSS" },
-  { label: "Backend & Data", items: "Node.js, PostgreSQL, Redis, REST, GraphQL" },
-  { label: "Infrastructure", items: "Docker, GitHub Actions, Linux, Nginx" },
+  { label: "Languages", items: "PHP (9y), Node.js (7y), Python (7y), Golang (5y), Java" },
+  { label: "Frontend", items: "Vue.js (7y), React.js (5y), HTML5/CSS3 (9y), Tailwind, Svelte, Next.js, Nuxt.js" },
+  { label: "Data & Cache", items: "MySQL (9y), MongoDB (6y), PostgreSQL (6y), Redis (5y)" },
+  { label: "Architecture", items: "Microservices, RESTful API, gRPC, RabbitMQ, Google Pub/Sub, Docker, Git, Agile/Scrum" },
+];
+
+export const EDUCATION: EducationItem[] = [
+  { degree: "Bachelor of Informatics (S1)", school: "Universitas Ahmad Dahlan Yogyakarta" },
+  { degree: "High School (IPA)", school: "Islamic Center Binbaz Yogyakarta" },
 ];

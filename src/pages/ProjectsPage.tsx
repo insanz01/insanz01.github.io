@@ -6,7 +6,7 @@ export function ProjectsPage() {
       <section className="pb-10">
         <h1 className="mb-2 text-[22px] font-semibold tracking-tight">Projects</h1>
         <p className="m-0 text-[var(--text-muted)]">
-          A curated list of applications, developer tools, and backend experiments I&apos;ve built.
+          Production web platforms, CMS systems, and management tools I&apos;ve architected and shipped.
         </p>
       </section>
 
