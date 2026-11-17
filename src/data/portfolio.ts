@@ -42,7 +42,9 @@ export interface OwnProductItem {
 export interface StoreItem {
   id: string;
   name: string;
+  category: string;
   platform: string;
+  image: string;
   description: string;
   url: string;
 }
@@ -215,10 +217,13 @@ export const OWN_PRODUCTS: OwnProductItem[] = [
 
 export const STORE_ITEMS: StoreItem[] = [
   {
-    id: "tokopedia-1",
-    name: "Produk Pilihan di Tokopedia",
-    platform: "Tokopedia",
-    description: "Klik card ini untuk langsung menuju halaman produk di toko Tokopedia.",
+    id: "gopix-8",
+    name: "Gopix 8 Minus Layar Garis",
+    category: "Gadget",
+    platform: "Tokopedia · Hobi Lampau",
+    image: "/products/gopix-8.svg",
+    description:
+      "Google Pixel 8 kondisi minus layar garis. Cek foto asli, deskripsi lengkap, dan harga langsung di Tokopedia.",
     url: "https://tk.tokopedia.com/ZSpnJuUnX/",
   },
 ];
