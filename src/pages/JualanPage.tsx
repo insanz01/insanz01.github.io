@@ -50,26 +50,42 @@ export function JualanPage() {
               onChange={(e) => setQuery(e.target.value)}
               placeholder={lang === "id" ? "Cari barang..." : "Search items..."}
               aria-label={lang === "id" ? "Cari barang" : "Search items"}
-              className="w-full border border-[var(--border)] bg-[var(--surface-raised)] px-3 py-2 text-sm text-[var(--text)] placeholder:text-[var(--text-subtle)] focus:border-[var(--border-strong)] focus:outline-none"
+              className="h-[38px] w-full border border-[var(--border)] bg-[var(--surface-raised)] px-3 text-sm text-[var(--text)] placeholder:text-[var(--text-subtle)] focus:border-[var(--border-strong)] focus:outline-none"
             />
           </div>
 
-          <select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            aria-label={lang === "id" ? "Filter kategori" : "Filter category"}
-            className="cursor-pointer border border-[var(--border)] bg-[var(--surface-raised)] px-3 py-2 font-mono text-xs text-[var(--text)] focus:border-[var(--border-strong)] focus:outline-none"
-          >
-            {categories.map((cat) => (
-              <option key={cat} value={cat}>
-                {cat === "ALL"
-                  ? lang === "id"
-                    ? `Kategori: Semua (${STORE_ITEMS.length})`
-                    : `Category: All (${STORE_ITEMS.length})`
-                  : cat}
-              </option>
-            ))}
-          </select>
+          <div className="relative shrink-0">
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              aria-label={lang === "id" ? "Filter kategori" : "Filter category"}
+              className="h-[38px] w-full cursor-pointer appearance-none rounded-none border border-[var(--border)] bg-[var(--surface-raised)] py-0 pr-9 pl-3 font-mono text-xs text-[var(--text)] focus:border-[var(--border-strong)] focus:outline-none sm:w-auto"
+            >
+              {categories.map((cat) => (
+                <option key={cat} value={cat}>
+                  {cat === "ALL"
+                    ? lang === "id"
+                      ? `Kategori: Semua (${STORE_ITEMS.length})`
+                      : `Category: All (${STORE_ITEMS.length})`
+                    : cat}
+                </option>
+              ))}
+            </select>
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.75"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+              className="pointer-events-none absolute top-1/2 right-2.5 -translate-y-1/2 text-[var(--text-muted)]"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </div>
         </div>
 
         {/* Product Grid */}
