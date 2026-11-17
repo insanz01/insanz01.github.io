@@ -1,28 +1,43 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Insan Kamil — Software Engineer</title>
     <meta
       name="description"
-      content="Insan Kamil is a software engineer focused on building reliable web applications, clean interfaces, and interactive developer tools."
+      content="Insan Kamil is a software engineer focused on building fast, maintainable web systems and interactive developer tools."
     />
-    <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#111110" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#090D0C" />
+    <meta property="og:title" content="Insan Kamil — Software Engineer" />
+    <meta
+      property="og:description"
+      content="Building fast, maintainable web systems. Full-stack portfolio, coding practice, and developer mini-apps."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://insanz01.github.io/" />
+    <meta property="og:image" content="https://insanz01.github.io/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Insan Kamil — Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Building fast, maintainable web systems."
+    />
+    <meta name="twitter:image" content="https://insanz01.github.io/og-image.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap"
       rel="stylesheet"
     />
     <script>
       (function () {
         try {
           var saved = localStorage.getItem("theme");
-          var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-          var theme = saved === "dark" || saved === "light" ? saved : prefersDark ? "dark" : "light";
+          var theme = saved === "light" || saved === "dark" ? saved : "dark";
           document.documentElement.dataset.theme = theme;
         } catch (e) {}
       })();

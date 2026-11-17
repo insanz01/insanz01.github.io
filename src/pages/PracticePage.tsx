@@ -281,7 +281,7 @@ export function PracticePage() {
             <button
               type="button"
               onClick={() => executeTests(true)}
-              className="cursor-pointer rounded border border-[var(--text)] bg-[var(--text)] px-3.5 py-1.5 text-xs font-medium text-[var(--bg)] transition-opacity hover:opacity-85"
+              className="cursor-pointer rounded-[2px] border border-[var(--accent)] bg-[var(--accent)] px-3.5 py-1.5 text-xs font-semibold text-[#090D0C] transition-opacity hover:opacity-90"
             >
               Submit
             </button>

@@ -2,29 +2,31 @@
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 :root {
-  color-scheme: light dark;
-  --bg: #fafafa;
-  --surface: #f2f2f0;
-  --surface-raised: #ffffff;
-  --text: #141413;
-  --text-muted: #666662;
-  --text-subtle: #8c8c87;
-  --border: rgba(20, 20, 19, 0.1);
-  --border-strong: rgba(20, 20, 19, 0.22);
+  color-scheme: dark light;
+  --bg: #f2f3ee;
+  --surface: #e6e8e1;
+  --surface-raised: #f8f9f5;
+  --text: #090d0c;
+  --text-muted: #4b544f;
+  --text-subtle: #6e7872;
+  --border: #d0d5ce;
+  --border-strong: #9fa8a1;
+  --accent: #4d7c0f;
   --ok: #15803d;
   --err: #b91c1c;
 }
 
 :root[data-theme="dark"] {
-  --bg: #111110;
-  --surface: #1b1b19;
-  --surface-raised: #161614;
-  --text: #ededec;
-  --text-muted: #9a9a95;
-  --text-subtle: #6f6f6a;
-  --border: rgba(237, 237, 236, 0.1);
-  --border-strong: rgba(237, 237, 236, 0.24);
-  --ok: #4ade80;
+  --bg: #090d0c;
+  --surface: #111715;
+  --surface-raised: #0d1210;
+  --text: #f2f3ee;
+  --text-muted: #aab2ac;
+  --text-subtle: #6e7872;
+  --border: #28302c;
+  --border-strong: #3b4640;
+  --accent: #b7ff3c;
+  --ok: #b7ff3c;
   --err: #f87171;
 }
 
@@ -44,6 +46,12 @@
     text-rendering: optimizeLegibility;
   }
 
+  h1,
+  h2,
+  .font-display {
+    font-family: "Space Grotesk", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
   code,
   pre,
   kbd,
@@ -52,9 +60,9 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--text);
+    outline: 2px solid var(--accent);
     outline-offset: 3px;
-    border-radius: 3px;
+    border-radius: 2px;
   }
 }
 
@@ -73,20 +81,20 @@
 .md-preview blockquote {
   margin: 0 0 10px;
   padding-left: 12px;
-  border-left: 2px solid var(--border-strong);
+  border-left: 2px solid var(--accent);
   color: var(--text-muted);
 }
 .md-preview code {
   font-size: 12.5px;
   padding: 1px 4px;
   background: var(--surface);
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .md-preview pre {
   margin: 0 0 10px;
   padding: 10px;
   background: var(--surface);
-  border-radius: 4px;
+  border-radius: 2px;
   overflow-x: auto;
 }
 .md-preview pre code { padding: 0; background: none; }

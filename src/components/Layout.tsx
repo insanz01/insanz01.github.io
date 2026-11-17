@@ -48,7 +48,7 @@ export function Layout({ children, theme, onToggleTheme }: LayoutProps) {
 
   const navClass = ({ isActive }: { isActive: boolean }) =>
     `transition-colors duration-150 hover:text-[var(--text)] ${
-      isActive ? "font-medium text-[var(--text)]" : "text-[var(--text-muted)]"
+      isActive ? "font-medium text-[var(--accent)]" : "text-[var(--text-muted)]"
     }`;
 
   return (
@@ -61,14 +61,17 @@ export function Layout({ children, theme, onToggleTheme }: LayoutProps) {
       </a>
 
       <div className="mx-auto max-w-[740px] px-5 pt-10 pb-16 sm:px-6 sm:pt-16 sm:pb-20">
-        <header className="flex flex-col items-start justify-between gap-4 pb-9 sm:flex-row sm:gap-6 sm:pb-12">
-          <div>
-            <Link to="/" className="inline-block text-base font-semibold tracking-tight">
-              {PROFILE.name}
-            </Link>
-            <p className="mt-0.5 text-[13.5px] text-[var(--text-muted)]">
-              {PROFILE.role} · {PROFILE.location}
-            </p>
+        <header className="flex flex-col items-start justify-between gap-4 pb-9 sm:flex-row sm:items-center sm:gap-6 sm:pb-12">
+          <div className="flex items-center gap-3">
+            <span className="inline-block h-5 w-1 bg-[var(--accent)]" aria-hidden="true" />
+            <div>
+              <Link to="/" className="font-display inline-block text-base font-bold tracking-tight uppercase">
+                {PROFILE.name}
+              </Link>
+              <p className="m-0 font-mono text-[11.5px] text-[var(--text-muted)]">
+                {PROFILE.role} · {PROFILE.location}
+              </p>
+            </div>
           </div>
 
           <nav className="flex flex-wrap items-center gap-4 text-[13.5px]" aria-label="Primary">
@@ -122,9 +125,11 @@ export function Layout({ children, theme, onToggleTheme }: LayoutProps) {
 
         <main id="main">{children}</main>
 
-        <footer className="flex flex-col items-start justify-between gap-1.5 border-t border-[var(--border)] pt-8 text-[12.5px] text-[var(--text-subtle)] sm:flex-row sm:items-center sm:gap-4">
-          <span>© {new Date().getFullYear()} {PROFILE.name}</span>
-          <span>Built with React, TypeScript &amp; Tailwind CSS</span>
+        <footer className="flex flex-col items-start justify-between gap-1.5 border-t border-[var(--border)] pt-8 text-[12.5px] text-[var(--text-muted)] sm:flex-row sm:items-center sm:gap-4">
+          <span>© {new Date().getFullYear()} {PROFILE.name} · insanz01.github.io</span>
+          <span className="font-mono text-[11.5px] tracking-wider text-[var(--text-subtle)]">
+            FULL-STACK · SYSTEMS · TOOLS
+          </span>
         </footer>
       </div>
 

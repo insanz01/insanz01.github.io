@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <!-- Near-black canvas -->
+  <rect width="1200" height="630" fill="#090D0C"/>
+
+  <!-- Left column (~25% width, x=92..340): Original chunky pixel-geometric terminal/monogram glyph -->
+  <g transform="translate(92, 168)">
+    <!-- Outer structural frame (hard edges, flat colors) -->
+    <rect x="0" y="0" width="224" height="224" fill="#111715"/>
+    <rect x="0" y="0" width="224" height="2" fill="#28302C"/>
+    <rect x="0" y="222" width="224" height="2" fill="#28302C"/>
+    <rect x="0" y="0" width="2" height="224" fill="#28302C"/>
+    <rect x="222" y="0" width="2" height="224" fill="#28302C"/>
+
+    <!-- Chunky pixel-block 'I' -->
+    <rect x="32" y="40" width="48" height="24" fill="#F2F3EE"/>
+    <rect x="44" y="64" width="24" height="96" fill="#F2F3EE"/>
+    <rect x="32" y="160" width="48" height="24" fill="#F2F3EE"/>
+
+    <!-- Chunky pixel-block 'K' -->
+    <rect x="104" y="40" width="24" height="144" fill="#F2F3EE"/>
+    <rect x="128" y="96" width="24" height="24" fill="#28302C"/>
+    <rect x="152" y="64" width="24" height="32" fill="#F2F3EE"/>
+    <rect x="176" y="40" width="24" height="24" fill="#F2F3EE"/>
+    <rect x="152" y="120" width="24" height="32" fill="#F2F3EE"/>
+    <rect x="176" y="152" width="24" height="32" fill="#F2F3EE"/>
+
+    <!-- Single vivid electric lime terminal cursor pixel -->
+    <rect x="176" y="160" width="24" height="24" fill="#B7FF3C"/>
+  </g>
+
+  <!-- Right column (x=396..1108): Brand marker + Dominant Headline -->
+  <g transform="translate(396, 168)">
+    <!-- Brand marker: crisp rectangular lime bar + subordinate wordmark -->
+    <rect x="0" y="2" width="6" height="22" fill="#B7FF3C"/>
+    <text
+      x="20"
+      y="20"
+      fill="#AAB2AC"
+      font-family="Space Grotesk, Inter, -apple-system, BlinkMacSystemFont, sans-serif"
+      font-size="18"
+      font-weight="600"
+      letter-spacing="2.2"
+    >INSAN KAMIL</text>
+
+    <!-- Dominant multi-line headline (58px, tight line-height ~1.02) -->
+    <text
+      x="0"
+      y="96"
+      fill="#F2F3EE"
+      font-family="Space Grotesk, Inter, -apple-system, BlinkMacSystemFont, sans-serif"
+      font-size="60"
+      font-weight="700"
+      letter-spacing="-1.8"
+    >
+      <tspan x="0" dy="0">Building fast,</tspan>
+      <tspan x="0" dy="62">maintainable</tspan>
+      <tspan x="0" dy="62" fill="#B7FF3C">web systems.</tspan>
+    </text>
+  </g>
+
+  <!-- Lower footer band: thin divider + quiet metadata -->
+  <line x1="92" y1="508" x2="1108" y2="508" stroke="#28302C" stroke-width="1"/>
+  <text
+    x="92"
+    y="548"
+    fill="#AAB2AC"
+    font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif"
+    font-size="16"
+    font-weight="500"
+    letter-spacing="0.2"
+  >insanz01.github.io</text>
+  <text
+    x="1108"
+    y="548"
+    text-anchor="end"
+    fill="#AAB2AC"
+    font-family="JetBrains Mono, ui-monospace, SFMono-Regular, monospace"
+    font-size="14"
+    font-weight="500"
+    letter-spacing="1.2"
+  >FULL-STACK · SYSTEMS · TOOLS</text>
+</svg>

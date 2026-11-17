@@ -75,9 +75,9 @@ export function AppsPage({ onSetTheme }: AppsPageProps) {
                       switchTab(next.id);
                     }
                   }}
-                  className={`cursor-pointer rounded px-3 py-1.5 text-[13px] font-medium transition-colors ${
+                  className={`cursor-pointer rounded-[2px] px-3 py-1.5 font-mono text-xs font-medium transition-colors ${
                     selected
-                      ? "border border-[var(--border)] bg-[var(--surface-raised)] text-[var(--text)]"
+                      ? "border border-[var(--border-strong)] bg-[var(--surface-raised)] text-[var(--accent)]"
                       : "border border-transparent bg-transparent text-[var(--text-muted)] hover:text-[var(--text)]"
                   }`}
                 >
