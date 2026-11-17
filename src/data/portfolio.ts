@@ -173,9 +173,9 @@ export const EXPERIENCE: ExperienceItem[] = [
 ];
 
 export const STACK: StackCategory[] = [
-  { label: "Languages", items: "PHP (9y), Node.js (7y), Python (7y), Golang (5y), Java" },
-  { label: "Frontend", items: "Vue.js (7y), React.js (5y), HTML5/CSS3 (9y), Tailwind, Svelte, Next.js, Nuxt.js" },
-  { label: "Data & Cache", items: "MySQL (9y), MongoDB (6y), PostgreSQL (6y), Redis (5y)" },
+  { label: "Languages", items: "PHP, Node.js, Python, Golang, Java" },
+  { label: "Frontend", items: "Vue.js, React.js, HTML5/CSS3, Tailwind, Svelte, Next.js, Nuxt.js" },
+  { label: "Data & Cache", items: "MySQL, MongoDB, PostgreSQL, Redis" },
   { label: "Architecture", items: "Microservices, RESTful API, gRPC, RabbitMQ, Google Pub/Sub, Docker, Git, Agile/Scrum" },
 ];
 
