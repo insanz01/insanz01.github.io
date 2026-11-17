@@ -4,6 +4,11 @@ import { PROFILE, PROJECTS } from "../data/portfolio";
 
 const MINI_APPS = [
   {
+    id: "puzzle",
+    name: "JS Puzzles",
+    desc: "Grasshopper-style bite-sized JavaScript challenges with live visual output.",
+  },
+  {
     id: "terminal",
     name: "Terminal",
     desc: "Interactive shell for exploring profile, stack, and shortcuts.",
@@ -111,11 +116,13 @@ export function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-          {MINI_APPS.map((app) => (
+          {MINI_APPS.map((app, idx) => (
             <Link
               key={app.id}
               to={`/apps#${app.id}`}
-              className="flex flex-col gap-1 rounded-[6px] border border-[var(--border)] bg-[var(--surface-raised)] px-4 py-3.5 transition-colors hover:border-[var(--border-strong)] hover:bg-[var(--surface)]"
+              className={`flex flex-col gap-1 rounded-[6px] border border-[var(--border)] bg-[var(--surface-raised)] px-4 py-3.5 transition-colors hover:border-[var(--border-strong)] hover:bg-[var(--surface)] ${
+                idx === 0 ? "sm:col-span-2" : ""
+              }`}
             >
               <span className="text-sm font-medium tracking-tight">{app.name}</span>
               <span className="text-[13px] leading-snug text-[var(--text-muted)]">{app.desc}</span>

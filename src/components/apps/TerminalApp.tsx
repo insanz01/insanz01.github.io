@@ -9,7 +9,7 @@ interface TermLine {
 }
 
 interface TerminalAppProps {
-  onSwitchTab: (tab: "terminal" | "utils" | "ratelimit" | "markdown") => void;
+  onSwitchTab: (tab: "terminal" | "puzzle" | "utils" | "ratelimit" | "markdown") => void;
   onSetTheme: (mode?: ThemeMode) => void;
 }
 
@@ -54,7 +54,7 @@ export function TerminalApp({ onSwitchTab, onSetTheme }: TerminalAppProps) {
     switch (cmd) {
       case "help":
         pushLine(
-          "Commands: whoami, projects, experience, stack, contact, theme [light|dark], open [utils|ratelimit|markdown], date, clear",
+          "Commands: whoami, projects, experience, stack, contact, theme [light|dark], open [puzzle|utils|ratelimit|markdown], date, clear",
           "muted"
         );
         break;
@@ -92,11 +92,17 @@ export function TerminalApp({ onSwitchTab, onSetTheme }: TerminalAppProps) {
         }
         break;
       case "open":
-        if (arg === "utils" || arg === "ratelimit" || arg === "markdown" || arg === "terminal") {
+        if (
+          arg === "puzzle" ||
+          arg === "utils" ||
+          arg === "ratelimit" ||
+          arg === "markdown" ||
+          arg === "terminal"
+        ) {
           onSwitchTab(arg);
           pushLine(`Switched to ${arg}.`, "muted");
         } else {
-          pushLine("Usage: open [utils | ratelimit | markdown]", "err");
+          pushLine("Usage: open [puzzle | utils | ratelimit | markdown]", "err");
         }
         break;
       case "clear":

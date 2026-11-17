@@ -27,6 +27,7 @@ export function CommandPalette({ open, onClose, onToggleTheme }: CommandPaletteP
     { label: "Go to Experience & Stack", hint: "page", run: () => navigate("/experience") },
     { label: "Go to Contact", hint: "page", run: () => navigate("/contact") },
     { label: "Open Mini-App: Terminal", hint: "app", run: () => navigate("/apps#terminal") },
+    { label: "Open Mini-App: JS Puzzles (Grasshopper-style)", hint: "app", run: () => navigate("/apps#puzzle") },
     { label: "Open Mini-App: Dev Utils (JSON / JWT / Time)", hint: "app", run: () => navigate("/apps#utils") },
     { label: "Open Mini-App: Rate Limiter Simulator", hint: "app", run: () => navigate("/apps#ratelimit") },
     { label: "Open Mini-App: Markdown Scratchpad", hint: "app", run: () => navigate("/apps#markdown") },

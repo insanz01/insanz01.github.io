@@ -5,11 +5,13 @@ import { DevUtilsApp } from "../components/apps/DevUtilsApp";
 import { MarkdownApp } from "../components/apps/MarkdownApp";
 import { RateLimiterApp } from "../components/apps/RateLimiterApp";
 import { TerminalApp } from "../components/apps/TerminalApp";
+import { CodePuzzleApp } from "../components/apps/CodePuzzleApp";
 
-type AppTab = "terminal" | "utils" | "ratelimit" | "markdown";
+type AppTab = "terminal" | "puzzle" | "utils" | "ratelimit" | "markdown";
 
 const TABS: { id: AppTab; label: string }[] = [
   { id: "terminal", label: "Terminal" },
+  { id: "puzzle", label: "JS Puzzles" },
   { id: "utils", label: "Dev Utils" },
   { id: "ratelimit", label: "Rate Limiter" },
   { id: "markdown", label: "Markdown" },
@@ -89,6 +91,7 @@ export function AppsPage({ onSetTheme }: AppsPageProps) {
             {activeTab === "terminal" && (
               <TerminalApp onSwitchTab={switchTab} onSetTheme={onSetTheme} />
             )}
+            {activeTab === "puzzle" && <CodePuzzleApp />}
             {activeTab === "utils" && <DevUtilsApp />}
             {activeTab === "ratelimit" && <RateLimiterApp />}
             {activeTab === "markdown" && <MarkdownApp />}
